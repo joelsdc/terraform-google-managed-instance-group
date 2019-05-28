@@ -27,13 +27,7 @@ resource "google_compute_instance_template" "default" {
 
   labels = "${var.instance_labels}"
 
-  network_interface {
-    network            = "${var.subnetwork == "" ? var.network : ""}"
-    subnetwork         = "${var.subnetwork}"
-    access_config      = ["${var.access_config}"]
-    address            = "${var.network_ip}"
-    subnetwork_project = "${var.subnetwork_project == "" ? var.project : var.subnetwork_project}"
-  }
+  network_interface = ["${var.network_interfaces}"]
 
   can_ip_forward = "${var.can_ip_forward}"
 
