@@ -307,14 +307,4 @@ variable ssh_fw_rule {
 variable "network_interfaces" {
   description = "The network interfaces to assign to the VM."
   type        = "list"
-
-  default = [
-    {
-    network            = "${var.subnetwork == "" ? var.network : ""}"
-    subnetwork         = "${var.subnetwork}"
-    access_config      = ["${var.access_config}"]
-    address            = "${var.network_ip}"
-    subnetwork_project = "${var.subnetwork_project == "" ? var.project : var.subnetwork_project}"
-    },
-  ]
 }
